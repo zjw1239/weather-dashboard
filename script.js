@@ -34,8 +34,8 @@ function displayWeather(city, weatherData) {
     }
 
     const date = new Date().toLocaleDateString();
-    const { temp, humidity, wind } = weatherData.list[0].main; // Adjusted for the list structure
-    const iconUrl = `https://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`; // Adjusted for the list structure
+    const { temp, humidity, wind } = weatherData.list[0].main;
+    const iconUrl = `https://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`;
 
     let html = `
         <h2>${city} (${date})</h2>
@@ -50,10 +50,8 @@ function displayWeather(city, weatherData) {
 
     elements.todayCont.innerHTML = html;
 
-    // Call displayForecast only once with the correct data
     displayForecast(weatherData.list);
 
-    // Update search history after displaying current weather and forecast
     searchHistory(city);
 }
 
